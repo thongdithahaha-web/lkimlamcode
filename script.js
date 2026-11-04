@@ -13,22 +13,9 @@ function resize() {
 }
 resize();
 window.addEventListener("resize", resize);
-
-const characters = "HAPPYBIRTHDAYCHUCMUNGSINHNHATTRANVIETANH";
 const fontSize = 20;
 const columns = Math.floor(W / fontSize);
 const drops = Array(columns).fill(1);
-
-const texts = [
-  "3",
-  "2",
-  "1",
-  "🎂",
-  "04.11.2008", 
-  "HAPPY BIRTHDAY",
-  "Trầ"
-];
-
 const BASE_DISPLAY_TIME = 3000;
 const EXPLOSION_TIME = 100;
 const CHAR_APPEAR_INTERVAL = 100;
