@@ -2,10 +2,7 @@ const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
 let W, H;
 
-function playAudioOnce() {
-  audio.play();
-  document.body.removeEventListener('click', playAudioOnce);
-}
+// Audio được khởi tạo và phát từ index.html khi người dùng nhấn bắt đầu
 
 function resize() {
   W = canvas.width = window.innerWidth;
@@ -207,9 +204,11 @@ function drawMatrixRain() {
   }
 }
 
-currentDisplayTime = BASE_DISPLAY_TIME + (texts[0].length > 5 ? 5000 : 0);
-initDots(texts[currentTextIndex]);
-lastChangeTime = Date.now();
-lastCharTime = Date.now();
-
-setInterval(drawMatrixRain, 50);
+// Hàm này được gọi từ index.html khi người dùng nhấn bắt đầu
+function startAnimation() {
+  currentDisplayTime = BASE_DISPLAY_TIME + (texts[0].length > 5 ? 5000 : 0);
+  initDots(texts[currentTextIndex]);
+  lastChangeTime = Date.now();
+  lastCharTime = Date.now();
+  setInterval(drawMatrixRain, 50);
+}

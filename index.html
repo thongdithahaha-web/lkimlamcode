@@ -7,6 +7,45 @@
 </head>
 <body>
   <canvas id="matrixCanvas"></canvas>
+
+  <!-- Overlay: bắt buộc do trình duyệt chặn autoplay không có tương tác -->
+  <div id="startOverlay" style="
+    position:fixed; inset:0; z-index:999;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    background:black; cursor:pointer;
+    font-family:'Segoe UI',sans-serif; color:white;
+  ">
+    <div style="font-size:60px; margin-bottom:16px;">🎂</div>
+    <div style="font-size:22px; font-weight:bold; letter-spacing:2px; color:#0ff;">HAPPY BIRTHDAY</div>
+    <div style="font-size:15px; margin-top:8px; color:#aaa;">Lê Kim Vũ</div>
+    <div style="
+      margin-top:32px; padding:12px 36px;
+      border:2px solid #0ff; border-radius:30px;
+      font-size:15px; color:#0ff; letter-spacing:1px;
+      animation: pulse 1.5s infinite;
+    ">▶ Nhấn để bắt đầu</div>
+  </div>
+
+  <style>
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.6; transform:scale(0.96); }
+    }
+  </style>
+
+  <script>
+    const audio = new Audio('hpbdlkl.mp3');
+    audio.loop = false;
+
+    document.getElementById('startOverlay').addEventListener('click', function () {
+      this.style.display = 'none';
+      audio.currentTime = 0;
+      audio.play();       // Phát nhạc ngay khi "3" bắt đầu hiện
+      startAnimation();   // Bắt đầu animation đếm ngược
+    });
+  </script>
+
   <script src="script.js"></script>
 </body>
 </html>
